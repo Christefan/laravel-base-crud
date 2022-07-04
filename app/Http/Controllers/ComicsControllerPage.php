@@ -100,4 +100,16 @@ class ComicsControllerPage extends Controller
         $current->delete();
         return redirect()->route('comics.index');
     }
+
+    private function getValidationRules() {
+        return [
+            'title' => 'required|max:100|min:5',
+            'description' => 'required',
+            'thumb' => 'required',
+            'price' => 'required',
+            'series' => 'required|max:50',
+            'sale_date' => 'required',
+            'type' => 'required|max:50|min:5'
+        ];
+    }
 }
